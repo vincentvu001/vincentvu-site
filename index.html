@@ -631,7 +631,7 @@ window.PORTFOLIO = {
             <p class="label">Interests</p>
             <p class="plain">${esc(S.interests.slice(0, -1).join(', ') + ', and ' + S.interests[S.interests.length - 1])}.</p>
             <div style="margin-top:40px; display:flex; flex-wrap:wrap; gap:16px 28px; align-items:center">
-              <a class="tlink" href="${esc(S.resumeUrl)}" download="Vincent_Vu_Resume.pdf" style="font-size:14px">resume</a>
+              <a class="tlink" href="${esc(S.resumeUrl)}" target="_blank" rel="noopener" style="font-size:14px">resume</a>
               <a class="tlink" href="mailto:${esc(S.email)}" style="font-size:14px">${esc(S.email)}</a>
               <a class="tlink" href="${esc(S.linkedin)}" target="_blank" rel="noopener" style="font-size:14px">LinkedIn</a>
             </div>
@@ -654,7 +654,7 @@ window.PORTFOLIO = {
   }
   document.addEventListener('click', e => {
     if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
-    const a = e.target.closest('a[href^="/"]:not([download])');
+    const a = e.target.closest('a[href^="/"]:not([target])');
     if (!a) return;
     e.preventDefault();
     go(a.getAttribute('href'));
